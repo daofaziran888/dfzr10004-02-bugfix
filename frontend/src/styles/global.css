@@ -33,3 +33,57 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .link { border: none; background: none; color: var(--brand); cursor: pointer; padding: 0; }
 .page-foot { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--muted); }
 .error-text { color: #b42318; }
+
+/* 阶段徽章：列表、详情、校验清单共用同一套配色 */
+.stage { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; white-space: nowrap; }
+.stage-draft { background: #eef2f6; color: #475569; }
+.stage-pending { background: #e0e7ff; color: #3730a3; }
+.stage-running { background: #dcfce7; color: #166534; }
+.stage-paused { background: #fef3c7; color: #92400e; }
+.stage-archived { background: #f1f5f9; color: #64748b; }
+.stage-passed { background: #dcfce7; color: #166534; }
+.stage-failed { background: #fee2e2; color: #991b1b; }
+.muted { color: var(--muted); }
+.link.danger { color: #b42318; }
+.link:disabled { color: #94a3b8; cursor: not-allowed; }
+
+/* 生命周期联动面板 */
+.linked-panel { margin-top: 20px; background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px 14px; }
+.linked-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.linked-head h3 { margin: 0; font-size: 15px; }
+.filter-item.inline { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.panel-hint { color: var(--muted); font-size: 13px; margin: 4px 0; }
+.terminal-tag { margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #f1f5f9; color: #64748b; font-size: 12px; }
+.action-chip { display: inline-block; margin: 0 4px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 999px; font-size: 12px; background: #f8fafc; }
+
+/* 详情抽屉与生命周期视图 */
+.drawer-mask { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); display: flex; justify-content: flex-end; z-index: 40; }
+.drawer { width: 560px; max-width: 92vw; height: 100%; overflow-y: auto; background: #fff; padding: 18px 20px; box-shadow: -8px 0 24px rgba(15, 23, 42, 0.18); }
+.drawer-head { display: flex; justify-content: space-between; align-items: flex-start; }
+.drawer-head h3 { margin: 0 0 4px; font-size: 16px; }
+.detail-grid { display: grid; grid-template-columns: 110px 1fr; gap: 6px 10px; margin: 12px 0; font-size: 13px; }
+.detail-grid dt { color: var(--muted); }
+.detail-grid dd { margin: 0; }
+.lifecycle-panel h3, .lifecycle-panel h4 { font-size: 14px; margin: 14px 0 6px; }
+.stage-track { list-style: none; display: flex; padding: 0; margin: 8px 0 12px; }
+.stage-node { flex: 1; text-align: center; position: relative; font-size: 12px; color: var(--muted); }
+.stage-node::before { content: ''; position: absolute; top: 13px; left: -50%; width: 100%; height: 2px; background: var(--border); z-index: 0; }
+.stage-node:first-child::before { display: none; }
+.stage-dot { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border-radius: 50%; background: #fff; border: 2px solid var(--border); position: relative; z-index: 1; }
+.stage-name { display: block; margin-top: 4px; }
+.stage-node.is-past .stage-dot { background: #1f6feb; border-color: #1f6feb; color: #fff; }
+.stage-node.is-past::before { background: #1f6feb; }
+.stage-node.is-current .stage-dot { background: #166534; border-color: #166534; color: #fff; }
+.stage-node.is-current .stage-name { color: #166534; font-weight: 600; }
+.stage-node.is-future { opacity: 0.65; }
+.history-list, .quota-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
+.history-item, .quota-item { border: 1px solid var(--border); border-radius: 6px; padding: 8px 10px; font-size: 12px; }
+.history-head { display: flex; gap: 8px; align-items: center; }
+.history-action { font-weight: 600; }
+.history-version { margin-left: auto; color: var(--muted); }
+.history-meta { display: flex; gap: 10px; color: var(--muted); margin-top: 4px; }
+.history-note { margin-top: 4px; color: #475569; }
+.quota-item { display: flex; gap: 10px; align-items: center; }
+.quota-type { min-width: 64px; font-weight: 600; }
+.quota-label { flex: 1; }
+.quota-time { color: var(--muted); }
